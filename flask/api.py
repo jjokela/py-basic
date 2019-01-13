@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
-from flask_restful import reqparse, abort, Api, Resource
-from compound import compound
+from flask_restful import Api, Resource
 
+from compound import compound, compound_yearly_value_with_interest
 
 app = Flask(__name__)
 api = Api(app)
@@ -14,7 +14,7 @@ class CompoundInterest(Resource):
         present_value = json_data['present_value']
         rate = json_data['interest_rate']
         time = json_data['time']
-        fv = compound(present_value, rate, time)
+        fv = compound_yearly_value_with_interest(present_value, rate, time)
 
         return jsonify(future_value=fv)
 
