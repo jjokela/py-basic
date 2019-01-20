@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-from compound import compound, compound_yearly_value_with_interest
+
+from compound import compound_yearly_value_with_interest
 
 # future value
 # interest
